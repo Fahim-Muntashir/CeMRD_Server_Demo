@@ -90,6 +90,44 @@ const makeFaqulty = async (req: Request, res: Response) => {
     }
 }
 
+// Delete Faqulty
+
+const deleteFaqulty = async (req: Request, res: Response) => {
+    try {
+        const { userId } = req.params;
+
+        // Check if the user exists
+        const existingUser = await UserServices.getSingleUserFromDB(userId);
+        
+        if (!existingUser) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        console.log(existingUser);
+
+        // Update the user's role to "facuty" in the database
+        await UserServices.updateUserRoleInDB(userId, 'user');
+
+        return res.status(200).json({
+            success: true,
+            message: "Faqulty role updated to faculty",
+            data: null,
+        });
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            data: null,
+        });
+    }
+}
+
 
 
 
@@ -97,8 +135,6 @@ const deleteUser = async (req: Request, res: Response) => {
     try {
         const { userId } = req.params;
         const userIdNum = parseInt(userId);
-
-
 
         // if the user exists 
         const existingUser = await UserServices.getSingleUserFromDB(userId);
@@ -127,6 +163,7 @@ const deleteUser = async (req: Request, res: Response) => {
 
 export const UserControllers = {
     createUser,
+    deleteFaqulty,
     getAllUser,
     getSingleUser,
     deleteUser,

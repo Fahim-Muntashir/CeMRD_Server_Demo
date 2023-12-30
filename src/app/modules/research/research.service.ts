@@ -6,6 +6,12 @@ const addNewResearchIntoDB = async (researchData: TResearch) => {
     return result;
 }
 
+const deleteUnpublihedResearchFromDB = async (researchId: string) => {
+    const result = await ResearchModel.deleteOne({ _id: researchId, published: false })
+    return result.deletedCount===1;
+}
+
 export const ResearchService = {
-    addNewResearchIntoDB
+    addNewResearchIntoDB,
+    deleteUnpublihedResearchFromDB
 }

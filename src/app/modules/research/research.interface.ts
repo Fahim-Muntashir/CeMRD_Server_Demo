@@ -3,5 +3,6 @@ export type TResearch = {
     challangeTitle: string,
     challangeDescription: string,
     responseTitle: string,
-    responseDescription:string,
+    responseDescription: string,
+    published: boolean,
 }

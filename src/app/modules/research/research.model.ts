@@ -21,6 +21,10 @@ const researchSchema = new Schema<TResearch>({
     responseDescription: {
         type: String,
         required:true,
+    },
+    published: {
+        type: Boolean,
+        default:false,
     }
 })
 

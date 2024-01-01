@@ -1,5 +1,5 @@
 import { Schema, model, } from "mongoose";
-import { TUser } from "./user.interface";
+import { TUser, UserModels } from "./user.interface";
 
 
 
@@ -21,6 +21,13 @@ const userSchema = new Schema<TUser>({
       default:"user",
       required: true,
     },
-  });
+});
   
-export const UserModel = model<TUser>('User', userSchema);
+userSchema.statics.isUserExistsByUserEmail = async function (useremail: string) {
+  const query = { email: new RegExp(`^${useremail}$`, 'i') };
+  console.log('MongoDB Query:', query);
+  return await UserModel.findOne(query);
+};
+
+
+export const UserModel = model<TUser,UserModels>('User', userSchema);

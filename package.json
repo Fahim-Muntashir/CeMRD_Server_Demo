@@ -4,22 +4,25 @@
   "description": "��#\u0000 \u0000M\u0000G\u0000_\u0000A\u0000g\u0000e\u0000n\u0000c\u0000y\u0000_\u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "prettier:fix":"npx prettier --write src",
+    "prettier:fix": "npx prettier --write src",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
     "lint:fix": "npx eslint src --fix",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev":"ts-node-dev --respawn --transpile-only src/server.ts",
-    "start:prod":"node ./dist/server.js"
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start:prod": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "http-status": "^1.7.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.2"
   },
   "devDependencies": {

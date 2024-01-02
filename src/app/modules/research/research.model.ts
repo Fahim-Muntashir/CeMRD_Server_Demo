@@ -16,7 +16,7 @@ const researchSchema = new Schema<TResearch>({
     },
     responseTitle: {
         type: String,
-        required:true,
+        required:true, 
     },
     responseDescription: {
         type: String,

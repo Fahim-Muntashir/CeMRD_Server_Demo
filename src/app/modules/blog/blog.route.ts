@@ -3,6 +3,11 @@ import { BlogController } from './blog.controller';
 
 const router = express.Router();
 
+router.get('/allresearch', BlogController.getAllBlog)
+
+router.get('/singleResearch/:id',BlogController.getSingleBlog)
+
+
 router.post('/addblog', BlogController.addBlog)
 
 router.delete('/deleteblog/:id',BlogController.deleteUnpublishedBlog)

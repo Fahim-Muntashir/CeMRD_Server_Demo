@@ -1,6 +1,32 @@
 import { Request, Response } from "express"
 import { ResearchService } from "./research.service";
 
+// 
+const getAllResearch = async (req: Request, res: Response) => {
+    try {
+        const result = await ResearchService.getAllResearchFromDB();
+    
+        res.status(200).json({
+            success: true,
+            message: "all research are Here",
+            data:result,
+        })
+
+    } catch (err){
+     console.log(err);   
+    }
+}
+
+const getSingleResearch = async (req: Request, res: Response) => {
+    const researchId = req.params.id;
+    const singleResearch = await ResearchService.getSingleResearch(researchId);
+    res.status(200).json({
+        success: true,
+        message: 'Research is Created Successfully',
+        data: singleResearch,
+    })
+}
+
 const addResearch = async(req:Request,res:Response) => {
     const data = req.body;
     const newResearch = await ResearchService.addNewResearchIntoDB(data);
@@ -53,6 +79,8 @@ const markResearchAsPublished = async (req: Request, res: Response) => {
 
 
 export const ResearchController = {
+    getAllResearch,
+    getSingleResearch,
     addResearch,
     deleteUnpublishedResearch,
     markResearchAsPublished

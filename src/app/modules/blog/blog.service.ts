@@ -1,6 +1,19 @@
 import { TBlog } from "./blog.interface"
 import { BlogModel } from "./blog.model"
 
+
+const getAllBlogFromDB = async () => {
+    const result = await BlogModel.find({})
+    return result;
+}
+
+
+const getSingleBlog = async (blogId: any) => {
+    const result =await BlogModel.findById(blogId)
+   return result;
+}
+
+
 const addNewBlogIntoDB = async (blogData: TBlog) => {
     const result = await BlogModel.create(blogData);
     return result;
@@ -23,6 +36,8 @@ const markBlogAsPublished = async (blogId: string) => {
 
 
 export const BlogService = {
+    getAllBlogFromDB,
+    getSingleBlog,
     addNewBlogIntoDB,
     deleteUnpublihedBlogFromDB,
     markBlogAsPublished

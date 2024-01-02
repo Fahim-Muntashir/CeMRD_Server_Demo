@@ -17,9 +17,9 @@ const createJwt = catchAsync(async (req, res) => {
     })
 })
 
-const isAdmin = catchAsync(async (req, res) => {
+const userRole = catchAsync(async (req, res) => {
     const email = req.params.email;
-    const result = await AuthServices.isAdminCheck({email});
+    const result = await AuthServices.roleCheck({email});
    sendResponse(res, {
           statusCode:httpStatus.OK,
         success: true,
@@ -30,5 +30,5 @@ const isAdmin = catchAsync(async (req, res) => {
 
 export const AuthControllers = {
     createJwt,
-    isAdmin
+    userRole
 }

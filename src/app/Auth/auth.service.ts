@@ -40,7 +40,7 @@ const createJwt = async (payload: TLoginUser) => {
 };
 
 
-const isAdminCheck= async(payload:TLoginUser) => {
+const roleCheck= async(payload:TLoginUser) => {
     console.log('Payload Email:', payload.email);
     try {
         const user = await UserModel.isUserExistsByUserEmail(payload.email.trim());
@@ -55,5 +55,5 @@ const isAdminCheck= async(payload:TLoginUser) => {
 
 export const AuthServices = {
     createJwt,
-    isAdminCheck
+    roleCheck
 };

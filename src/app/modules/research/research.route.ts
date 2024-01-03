@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/allresearch',ResearchController.getAllResearch)
 
-router.get('/singleResearch/:id',ResearchController.getSingleResearch)
+router.get('/singleresearch/:id',ResearchController.getSingleResearch)
 
 router.post('/addresearch', ResearchController.addResearch)
 

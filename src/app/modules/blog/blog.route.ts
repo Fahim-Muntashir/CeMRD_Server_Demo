@@ -3,9 +3,9 @@ import { BlogController } from './blog.controller';
 
 const router = express.Router();
 
-router.get('/allresearch', BlogController.getAllBlog)
+router.get('/allblog', BlogController.getAllBlog)
 
-router.get('/singleResearch/:id',BlogController.getSingleBlog)
+router.get('/singleblog/:id',BlogController.getSingleBlog)
 
 
 router.post('/addblog', BlogController.addBlog)

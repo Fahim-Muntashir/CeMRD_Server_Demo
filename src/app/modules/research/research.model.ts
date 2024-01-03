@@ -2,6 +2,7 @@ import { Schema, model } from "mongoose";
 import { TResearch } from "./research.interface";
 
 const researchSchema = new Schema<TResearch>({
+    
     researchImg: {
         type: String,
         required:true

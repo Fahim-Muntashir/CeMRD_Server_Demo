@@ -18,10 +18,6 @@ const BlogSchema = new Schema<TBlog>({
         type: String,
         required:true,
     },
-    img2Link: {
-        type: String,
-        required:true,
-    },
     description2: {
         type: String,
         required:true,

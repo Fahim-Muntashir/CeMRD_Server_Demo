@@ -21,14 +21,14 @@ const addNewResearchIntoDB = async (researchData: TResearch) => {
 
 // delete research service
 const deleteUnpublihedResearchFromDB = async (researchId: string) => {
-    const result = await ResearchModel.deleteOne({ _id: researchId, published: false })
+    const result = await ResearchModel.deleteOne({ _id: researchId })
     return result.deletedCount===1;
 }
 
 
 // Mark research as Published
 const markResearchAsPublished = async (researchId: string) => {
-    const result = await ResearchModel.updateOne({ _id: researchId, published: false }, { published: true });
+    const result = await ResearchModel.updateOne({ _id: researchId}, { published: true });
 
     return result.modifiedCount > 0;
 }

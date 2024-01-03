@@ -29,7 +29,7 @@ const deleteUnpublihedBlogFromDB = async (blogId: string) => {
 
 // Mark Blog as Published
 const markBlogAsPublished = async (blogId: string) => {
-    const result = await BlogModel.updateOne({ _id: blogId, published: false }, { published: true });
+    const result = await BlogModel.updateOne({ _id: blogId,}, { published: true });
 
     return result.modifiedCount > 0;
 }

@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 import { TAdviser } from "./adviser.interface";
 
 const AdviserSchema = new Schema<TAdviser>({
@@ -27,6 +27,6 @@ const AdviserSchema = new Schema<TAdviser>({
         type: String,
         required:true,
     }
-
-    
 })
+
+export const AdviserModel =model<TAdviser>('Adviser',AdviserSchema)

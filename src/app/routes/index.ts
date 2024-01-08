@@ -4,6 +4,7 @@ import { ResearchRoutes } from "../modules/research/research.route";
 import { BlogRoutes } from "../modules/blog/blog.route";
 import { userAuthRoutes } from "../Auth/auth.route";
 import { newsRoutes } from "../modules/news/news.routes";
+import { AdviserRoutes } from "../modules/adviser/adviser.route";
 
 const router = Router();
 
@@ -26,6 +27,9 @@ const moduleRoutes = [
     }, {
         path: '/news',
         route:newsRoutes
+    }, {
+        path: '/adviser',
+        route:AdviserRoutes
     }
 ]
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

@@ -3,6 +3,7 @@ import { UserRoutes } from "../modules/user/user.route";
 import { ResearchRoutes } from "../modules/research/research.route";
 import { BlogRoutes } from "../modules/blog/blog.route";
 import { userAuthRoutes } from "../Auth/auth.route";
+import { newsRoutes } from "../modules/news/news.routes";
 
 const router = Router();
 
@@ -21,6 +22,10 @@ const moduleRoutes = [
     }, {
         path: '/auth',
         route:userAuthRoutes
+    
+    }, {
+        path: '/news',
+        route:newsRoutes
     }
 ]
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

@@ -12,9 +12,6 @@ const userSchema = new Schema<TUser>({
     type: String,
     required:true,
   },
-  profileURL:{
-    type: String,
-  },
     role: {
       type: String,
       enum: ['admin', 'user', 'faculty'], // Use the TUserRole values as the enum

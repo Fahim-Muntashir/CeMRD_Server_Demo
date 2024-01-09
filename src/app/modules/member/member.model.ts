@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { TMemberProfile } from "./member.service";
+import { TMemberProfile } from "./member.interface";
 
 const memberProfileSchema = new Schema<TMemberProfile>({
     displayName: {
@@ -24,4 +24,4 @@ const memberProfileSchema = new Schema<TMemberProfile>({
     }
 })
 
-export const MemberProfileSchema =model<TMemberProfile>('MemberProfile',memberProfileSchema)
+export const MemberProfileModel =model<TMemberProfile>('MemberProfile',memberProfileSchema)

@@ -1,10 +1,10 @@
 import express from 'express'
 const router = express.Router();
-import { MemberController } from './member.controller';
+import { MemberProfileController } from './member.controller';
 
 
-router.get('/allmemberprofile',MemberController.getAllMemberProfile)
-router.get('/singlememberprofile', MemberController.getAllMemberProfile)
-router.put('/updatesinglememberprofile', MemberController.getAllMemberProfile)
+router.get('/allmemberprofile',MemberProfileController.getAllMemberProfile)
+router.get('/singlememberprofile', MemberProfileController.getSingleMemberProfile)
+// router.put('/updatesinglememberprofile', MemberController.getAllMemberProfile)
 
 export const MemberProfileRoutes = router;

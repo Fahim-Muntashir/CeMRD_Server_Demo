@@ -1,19 +1,17 @@
 import express from 'express'
-import { NewsController } from './news.controller';
+import { EventController } from './event.controller';
 
 const router = express.Router();
 
-router.get('/allnews', NewsController.getAllNews)
-
-router.get('/singlenews/:id',NewsController.getSingleNews)
-
-
-router.post('/addnews', NewsController.addNews)
-
-router.delete('/deletenews/:id',NewsController.deleteUnpublishedNews)
-
-router.put('/markpublished/:id', NewsController.markNewsAsPublished);
+router.get('/allevent', EventController.getAllEvent)
 
 
 
-export const newsRoutes = router;
+router.post('/addevent', EventController.addEvent)
+
+router.delete('/deleteevent/:id',EventController.deleteUnpublishedEvent)
+
+
+
+
+export const eventRoutes = router;

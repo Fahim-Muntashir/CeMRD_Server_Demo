@@ -1,5 +1,6 @@
 export type TMemberProfile = {
-    displayName:string,
+    displayName: string,
+    email:string,
     linkedin: string,
     googleScholar: string,
     address: string,

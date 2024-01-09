@@ -6,6 +6,10 @@ const memberProfileSchema = new Schema<TMemberProfile>({
         type: String,
         required: true,
     },
+    email: {
+        type: String,
+      required:true,  
+    },
     linkedin: {
         type: String,
         required: true,

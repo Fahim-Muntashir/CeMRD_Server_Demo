@@ -7,24 +7,33 @@ const getAllMemberProfileFromDB = async () => {
 }
 
 
-const getSingleMemberProfile = async (profileId: any) => {
-    const result =await MemberProfileModel.findById(profileId)
-   return result;
-}
+const getSingleMemberProfile = async (email: string) => {
+    const result = await MemberProfileModel.findOne({ email });
+    return result;
+};
 
 
-const updateMemberProfile = async (profileId: any, updatedFields: any) => {
-    const updatedProfile = await MemberProfileModel.findByIdAndUpdate(profileId, updatedFields, { new: true });
+
+
+const updateMemberProfile = async (email: any, updatedFields: any) => {
+    const updatedProfile = await MemberProfileModel.findOneAndUpdate({ email }, updatedFields, { new: true });
     return updatedProfile;
 };
 
-const addNewMemberProfile = async (profileId: any, newProfileFields: any) => {
-    const newProfile = await MemberProfileModel.create({ _id: profileId, ...newProfileFields });
+const addNewMemberProfile = async (email: any, newProfileFields: any) => {
+    const newProfile = await MemberProfileModel.create({ email, ...newProfileFields });
     return newProfile;
 };
+
+const findMemberByEmail = async (email: string) => {
+    const memberProfile = await MemberProfileModel.findOne({ email }); // Assuming email is a field in your member profile schema
+    return memberProfile;
+};
+
 
 export const MemberProfileService = {
     getAllMemberProfileFromDB,
     getSingleMemberProfile,updateMemberProfile,
     addNewMemberProfile,
+    findMemberByEmail,
 }

@@ -26,17 +26,19 @@ const getSingleMemberProfile = async (req: Request, res: Response) => {
         data: singleMemberprofile,
     })
 }
+
+
 const updateMemberProfile = async (req: Request, res: Response) => {
     try {
-        const memberId = req.params.id;
+        const email = req.params.email;
         const updatedFields = req.body; // Assuming the updated data is sent in the request body
 
         // Check if the profile exists
-        const existingProfile = await MemberProfileService.getSingleMemberProfile(memberId);
+        const existingProfile = await MemberProfileService.getSingleMemberProfile(email);
 
         if (existingProfile) {
             // If the profile exists, update the fields
-            const updatedProfile = await MemberProfileService.updateMemberProfile(memberId, updatedFields);
+            const updatedProfile = await MemberProfileService.updateMemberProfile(email, updatedFields);
 
             res.status(200).json({
                 success: true,
@@ -45,7 +47,7 @@ const updateMemberProfile = async (req: Request, res: Response) => {
             });
         } else {
             // If the profile doesn't exist, add a new profile
-            const newProfile = await MemberProfileService.addNewMemberProfile(memberId, updatedFields);
+            const newProfile = await MemberProfileService.addNewMemberProfile(email, updatedFields);
 
             res.status(201).json({
                 success: true,
@@ -63,8 +65,40 @@ const updateMemberProfile = async (req: Request, res: Response) => {
     }
 };
 
+// FInd Member using mail
+const findMemberByEmail = async (req: Request, res: Response) => {
+    try {
+        const email = req.query.email as string;
+
+        // Check if the profile exists
+        const memberProfile = await MemberProfileService.findMemberByEmail(email);
+
+        if (memberProfile) {
+            res.status(200).json({
+                success: true,
+                message: 'MemberProfile found successfully',
+                data: memberProfile,
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                message: 'MemberProfile not found',
+            });
+        }
+    } catch (err:any) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Internal server error',
+            error: err.message,
+        });
+    }
+};
+
 
 export const MemberProfileController = {
     getAllMemberProfile,
-    getSingleMemberProfile,updateMemberProfile
+    getSingleMemberProfile,
+    updateMemberProfile,
+    findMemberByEmail 
 }

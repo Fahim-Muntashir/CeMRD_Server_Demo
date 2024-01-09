@@ -3,11 +3,11 @@ import { AdviserController } from './adviser.controller';
 
 const router = express.Router();
 
-router.get('/allblog', AdviserController.getAllBlog)
+router.get('/alladviser', AdviserController.getAllAdviser)
 
-router.post('/addblog', AdviserController.addBlog)
+router.post('/addadviser', AdviserController.addAdviser)
 
-router.delete('/deleteblog/:id',AdviserController.deleteUnpublishedBlog)
+router.delete('/deleteadviser/:id',AdviserController.deleteUnpublishedAdviser)
 
 
 

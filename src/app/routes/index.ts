@@ -7,6 +7,7 @@ import { newsRoutes } from "../modules/news/news.routes";
 import { AdviserRoutes } from "../modules/adviser/adviser.route";
 import { MemberProfileRoutes } from "../modules/member/member.route";
 import { eventRoutes } from "../modules/event/event.route";
+import { MemberResearchRoutes } from "../modules/memberresearch/memberresearch.route";
 
 const router = Router();
 
@@ -38,6 +39,9 @@ const moduleRoutes = [
     }, {
         path: '/event',
         route:eventRoutes,
+    }, {
+        path: '/memberresearch',
+        route:MemberResearchRoutes,
     }
 ]
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

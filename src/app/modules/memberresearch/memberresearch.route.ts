@@ -1,8 +1,9 @@
-import express from 'express'
-const router = express.Router();
+import express from 'express';
 import { MemberResearchController } from './memberresearch.controller';
 
-router.post('/postresearch',MemberResearchController.postAResearch)
+const router = express.Router();
 
+router.post('/postresearch', MemberResearchController.postAResearch);
+router.get('/getresearch/:email', MemberResearchController.getAllResearchByUser);
 
 export const MemberResearchRoutes = router;

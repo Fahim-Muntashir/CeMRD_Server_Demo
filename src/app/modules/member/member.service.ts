@@ -14,11 +14,11 @@ const getSingleMemberProfile = async (email: string) => {
 
 
 
-
 const updateMemberProfile = async (email: any, updatedFields: any) => {
     const updatedProfile = await MemberProfileModel.findOneAndUpdate({ email }, updatedFields, { new: true });
     return updatedProfile;
 };
+
 
 const addNewMemberProfile = async (email: any, newProfileFields: any) => {
     const newProfile = await MemberProfileModel.create({ email, ...newProfileFields });

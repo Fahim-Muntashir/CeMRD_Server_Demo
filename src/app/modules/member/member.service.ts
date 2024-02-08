@@ -12,8 +12,6 @@ const getSingleMemberProfile = async (email: string) => {
     return result;
 };
 
-
-
 const updateMemberProfile = async (email: any, updatedFields: any) => {
     const updatedProfile = await MemberProfileModel.findOneAndUpdate({ email }, updatedFields, { new: true });
     return updatedProfile;

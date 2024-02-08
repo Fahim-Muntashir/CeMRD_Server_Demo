@@ -22,19 +22,26 @@ const createUser = async (req: Request, res: Response) => {
 
 const getAllUser = async (req: Request, res: Response) => {
     try {
-        const result = await UserServices.getAllUserFromDB();
-    
-        res.status(200).json({
-            success: true,
-            message: "Users are Here",
-            data:result,
-        })
-
-    } catch (err){
-     console.log(err);   
+      const { search } = req.query;
+      const result = search
+        ? await UserServices.searchUsers(search.toString())
+        : await UserServices.getAllUserFromDB();
+  
+      res.status(200).json({
+        success: true,
+        message: "Users are Here",
+        data: result,
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({
+        success: false,
+        message: "Internal Server Error",
+        data: null,
+      });
     }
-}
-
+};
+  
 const getSingleUser = async (req: Request, res: Response) => {
     try {
 

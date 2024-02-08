@@ -16,7 +16,10 @@ const getSingleUserFromDB = async (id: string) => {
     console.log(result);
     return result;
 }
-
+const searchUsers = async (searchQuery:any) => {
+    const result = await UserModel.find({ email: { $regex: searchQuery, $options: "i" } });
+    return result;
+  };
 
 // update user role into db
 
@@ -42,5 +45,5 @@ export const UserServices = {
     getAllUserFromDB,
     getSingleUserFromDB,
     updateUserRoleInDB,
-    deleteUserFromDB,
+    deleteUserFromDB,searchUsers
 }

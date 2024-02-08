@@ -10,6 +10,10 @@ const memberProfileSchema = new Schema<TMemberProfile>({
         type: String,
       required:true,  
     },
+    imgUrl: {
+        type: String,
+        required:true,
+    },
     linkedin: {
         type: String,
         required: true,

@@ -4,14 +4,16 @@ import router from './app/routes';
 
 const app: Application = express();
 
-//parsers
+// parsers
 app.use(express.json());
+
 app.use(cors());
 
 
-app.use('/api',router)
+// Use your router for API routes
+app.use('/api', router);
 
-
+// Define a basic route handler for the root path
 app.get('/', (req: Request, res: Response) => {
   const a = 10;
   res.send(a);

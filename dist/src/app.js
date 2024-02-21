@@ -9,14 +9,7 @@ const routes_1 = __importDefault(require("./app/routes"));
 const app = (0, express_1.default)();
 // parsers
 app.use(express_1.default.json());
-// define CORS options
-const corsOptions = {
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
-};
-// Apply CORS middleware with options
-app.use((0, cors_1.default)(corsOptions));
+app.use((0, cors_1.default)());
 // Use your router for API routes
 app.use('/api', routes_1.default);
 // Define a basic route handler for the root path

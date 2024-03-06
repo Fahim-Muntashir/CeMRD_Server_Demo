@@ -1,8 +1,9 @@
 export type TResearch = {
-    researchImg:string,
-    challangeTitle: string,
-    challangeDescription: string,
-    responseTitle: string,
-    responseDescription: string,
+    title:string,
+    abstract: string,
+    authorName: string,
+    vanue: string,
+    img: string,
+    link: string,
     published: boolean,
 }

@@ -3,23 +3,27 @@ import { TResearch } from "./research.interface";
 
 const researchSchema = new Schema<TResearch>({
     
-    researchImg: {
+    title: {
         type: String,
         required:true
     },
-    challangeTitle: {
+    abstract: {
         type: String,
         required:true,
     },
-    challangeDescription: {
+    authorName: {
         type: String,
         required:true,
     },
-    responseTitle: {
+    vanue: {
         type: String,
         required:true, 
     },
-    responseDescription: {
+    img: {
+        type: String,
+        required:true,
+    },
+    link: {
         type: String,
         required:true,
     },

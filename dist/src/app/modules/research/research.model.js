@@ -3,23 +3,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResearchModel = void 0;
 const mongoose_1 = require("mongoose");
 const researchSchema = new mongoose_1.Schema({
-    researchImg: {
+    title: {
         type: String,
         required: true
     },
-    challangeTitle: {
+    abstract: {
         type: String,
         required: true,
     },
-    challangeDescription: {
+    authorName: {
         type: String,
         required: true,
     },
-    responseTitle: {
+    vanue: {
         type: String,
         required: true,
     },
-    responseDescription: {
+    img: {
+        type: String,
+        required: true,
+    },
+    link: {
         type: String,
         required: true,
     },

@@ -5,5 +5,6 @@ export type TResearch = {
     vanue: string,
     img: string,
     link: string,
+    date:string,
     published: boolean,
 }

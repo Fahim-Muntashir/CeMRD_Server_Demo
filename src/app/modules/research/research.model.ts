@@ -5,25 +5,29 @@ const researchSchema = new Schema<TResearch>({
     
     title: {
         type: String,
-        required:true
+        required: true
     },
     abstract: {
         type: String,
-        required:true,
+        required: true,
     },
     authorName: {
         type: String,
-        required:true,
+        required: true,
     },
     vanue: {
         type: String,
-        required:true, 
+        required: true,
     },
     img: {
         type: String,
-        required:true,
+        required: true,
     },
     link: {
+        type: String,
+        required: true,
+    },
+    date: {
         type: String,
         required:true,
     },

@@ -27,6 +27,10 @@ const researchSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    date: {
+        type: String,
+        required: true,
+    },
     published: {
         type: Boolean,
         default: false,

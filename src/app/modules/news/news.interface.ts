@@ -4,5 +4,6 @@ export type TNews = {
     img1Link: string,
     description1: string,
     description2: string,
-    published:boolean,
+    published: boolean,
+    date: Date ,
 }

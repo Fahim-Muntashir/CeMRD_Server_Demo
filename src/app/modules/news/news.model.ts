@@ -25,6 +25,10 @@ const NewsSchema = new Schema<TNews>({
     published: {
         type: Boolean,
         default:true,
+    },
+    date: {
+        type: Date, 
+        default: Date.now ,
     }
 })
 

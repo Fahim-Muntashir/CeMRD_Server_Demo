@@ -15,6 +15,22 @@ const memberProfileSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    position: {
+        type: String,
+        required: true,
+    },
+    personalProfile: {
+        type: String,
+        required: true,
+    },
+    researchGate: {
+        type: String,
+        required: true,
+    },
+    github: {
+        type: String,
+        required: true
+    },
     linkedin: {
         type: String,
         required: true,
